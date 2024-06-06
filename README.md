@@ -1,53 +1,25 @@
-# Next.js & NextUI Template
+# Welcome to CodeByMedu's GitHub! 👋
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+Hi, I'm Medu. I focus on frontend development and use Next.js and React to build web applications. I also use Supabase for creating full-stack apps.
 
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/next-app-template)
+## About Me
 
-## Technologies Used
+- **Frontend Developer:** I specialize in building user interfaces with Next.js and React.
+- **Full-Stack Skills:** I use tools such as Supabase to add backend functionality to my projects.
+- **Experience:** I've worked as a frontend technical lead, guiding a project to success.
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+## What You'll Find Here
 
-## How to Use
+- **Projects:** You'll see various projects showcasing my skills in frontend and full-stack development.
+- **Code Samples:** Check out my repositories for examples of my work and coding style.
 
-### Use the template with create-next-app
+## Let's Connect
 
-To create a new project based on this template using `create-next-app`, run the following command:
+- 📧 Email: [03medu@gmail.com](mailto:03medu@gmail.com)
+- 🌐 Website: (Work in Progress)
 
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
+Feel free to reach out or explore my projects. I'm always open to collaboration and new opportunities!
 
-### Install dependencies
+Happy coding! 🚀
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
-npm install
-```
-
-### Run the development server
-
-```bash
-npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+Medu (CodeByMedu)
