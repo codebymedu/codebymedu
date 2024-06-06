@@ -1,5 +1,10 @@
-import { CodeDisplay } from "@codebymedu/components/codeDisplay/codeDisplay";
+import {
+  CodeDisplay,
+  CodeDisplayTab,
+} from "@codebymedu/components/codeDisplay/codeDisplay";
 import { title, subtitle } from "@codebymedu/components/primitives";
+import { Tab, Tabs } from "@nextui-org/react";
+import { UserIcon } from "@heroicons/react/16/solid";
 
 export default function Home() {
   return (
@@ -15,15 +20,7 @@ export default function Home() {
 
       <div className="w-11/12 items-center mt-8">
         <CodeDisplay>
-          <CodeDisplay.Explorer>
-            <CodeDisplay.Explorer.File>aboutMe.tsx</CodeDisplay.Explorer.File>
-
-            <CodeDisplay.Explorer.File>skills.tsx</CodeDisplay.Explorer.File>
-
-            <CodeDisplay.Explorer.File>contact.tsx</CodeDisplay.Explorer.File>
-
-            <CodeDisplay.Explorer.File>askAI.tsx</CodeDisplay.Explorer.File>
-          </CodeDisplay.Explorer>
+          <CodeDisplayTab />
         </CodeDisplay>
       </div>
     </section>
