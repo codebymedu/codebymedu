@@ -1,3 +1,4 @@
+import { CodeEditorDisplay } from "@/components/codeEditorDisplay/codeEditorDisplay";
 import { title, subtitle } from "@/components/primitives";
 
 export default function Home() {
@@ -8,8 +9,16 @@ export default function Home() {
         <h1 className={title({ color: "violet" })}> Medu</h1>
         <br />
         <h2 className={subtitle({ class: "mt-4" })}>
-          You won't believe how simple and dynamic your web apps can be.
+          You won&lsquo;t believe how simple and dynamic your web apps can be.
         </h2>
+      </div>
+
+      <div className="">
+        {/* <CodeEditorDisplay>
+          <CodeEditorDisplay.Explorer>
+            <CodeEditorDisplay.Explorer.File></CodeEditorDisplay.Explorer.File>
+          </CodeEditorDisplay.Explorer>
+        </CodeEditorDisplay> */}
       </div>
     </section>
   );
