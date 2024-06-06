@@ -1,5 +1,5 @@
-import { CodeEditorDisplay } from "@/components/codeEditorDisplay/codeEditorDisplay";
-import { title, subtitle } from "@/components/primitives";
+import { CodeDisplay } from "@codebymedu/components/codeDisplay/codeDisplay";
+import { title, subtitle } from "@codebymedu/components/primitives";
 
 export default function Home() {
   return (
@@ -14,11 +14,11 @@ export default function Home() {
       </div>
 
       <div className="">
-        {/* <CodeEditorDisplay>
-          <CodeEditorDisplay.Explorer>
-            <CodeEditorDisplay.Explorer.File></CodeEditorDisplay.Explorer.File>
-          </CodeEditorDisplay.Explorer>
-        </CodeEditorDisplay> */}
+        <CodeDisplay>
+          <CodeDisplay.Explorer>
+            <CodeDisplay.Explorer.File>aboutMe.tsx</CodeDisplay.Explorer.File>
+          </CodeDisplay.Explorer>
+        </CodeDisplay>
       </div>
     </section>
   );

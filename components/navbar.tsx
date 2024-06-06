@@ -15,9 +15,14 @@ import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 
-import { siteConfig } from "@/config/site";
-import { ThemeSwitch } from "@/components/theme-switch";
-import { TwitterIcon, GithubIcon, SearchIcon, Logo } from "@/components/icons";
+import { siteConfig } from "@codebymedu/config/site";
+import { ThemeSwitch } from "@codebymedu/components/theme-switch";
+import {
+  TwitterIcon,
+  GithubIcon,
+  SearchIcon,
+  Logo,
+} from "@codebymedu/components/icons";
 
 export const Navbar = () => {
   return (
