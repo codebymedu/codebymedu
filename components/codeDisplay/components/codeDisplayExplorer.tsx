@@ -7,11 +7,8 @@ type CodeDisplayExplorerProps = { children: ReactNode };
 export const CodeDisplayExplorer = ({ children }: CodeDisplayExplorerProps) => {
   return (
     <Card>
-      <Accordion>
-        <AccordionItem aria-label="PORTFOLIO" title="PORTFOLIO">
-          {children}
-        </AccordionItem>
-      </Accordion>
+      PORTFOLIO
+      {children}
     </Card>
   );
 };
