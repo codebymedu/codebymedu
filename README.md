@@ -16,7 +16,7 @@ Hi, I'm Medu. I focus on frontend development and use Next.js and React to build
 ## Let's Connect
 
 - 📧 Email: [03medu@gmail.com](mailto:03medu@gmail.com)
-- 🌐 Website: (Work in Progress)
+- 🌐 Website: (Work in Progress) https://codebymedu.com/
 
 Feel free to reach out or explore my projects. I'm always open to collaboration and new opportunities!
 
