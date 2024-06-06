@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.gradient-shadow-violet {
+  position: relative;
+}
+
+.gradient-shadow-violet::before {
+  content: "";
+  position: absolute;
+  top: -4px; /* Adjust the position as needed */
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  z-index: -1;
+  border-radius: inherit; /* Inherit the border radius of the element */
+  background: linear-gradient(135deg, #ff1cf7, #b249f8);
+  filter: blur(8px); /* Adjust the blur as needed */
+}

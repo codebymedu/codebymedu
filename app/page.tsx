@@ -13,10 +13,16 @@ export default function Home() {
         </h2>
       </div>
 
-      <div className="">
+      <div className="w-11/12 items-center mt-8">
         <CodeDisplay>
           <CodeDisplay.Explorer>
             <CodeDisplay.Explorer.File>aboutMe.tsx</CodeDisplay.Explorer.File>
+
+            <CodeDisplay.Explorer.File>skills.tsx</CodeDisplay.Explorer.File>
+
+            <CodeDisplay.Explorer.File>contact.tsx</CodeDisplay.Explorer.File>
+
+            <CodeDisplay.Explorer.File>askAI.tsx</CodeDisplay.Explorer.File>
           </CodeDisplay.Explorer>
         </CodeDisplay>
       </div>

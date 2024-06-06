@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Chip } from "@nextui-org/react";
 
 type CodeDisplayExplorerFileProps = {
   children: ReactNode;
@@ -7,7 +8,7 @@ type CodeDisplayExplorerFileProps = {
 export const CodeDisplayExplorerFile = ({
   children,
 }: CodeDisplayExplorerFileProps) => {
-  return <>File {children}</>;
+  return <Chip>{children}</Chip>;
 };
 
 CodeDisplayExplorerFile.displayName = "CodeDisplayExplorerFile";
