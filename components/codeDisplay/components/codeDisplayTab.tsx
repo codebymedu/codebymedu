@@ -47,8 +47,8 @@ export const CodeDisplayTab = ({}: CodeDisplayTabProps) => {
             <TagDisplay tag="Experience">Frontend Technical Lead</TagDisplay>
 
             <TagDisplay tag="Philosophy">
-              Don't think I'm just about code—I'm about creating awesome
-              experiences.
+              Don&lsquo;t think I&lsquo;m just about code—I&lsquo;m about
+              creating awesome experiences.
             </TagDisplay>
           </TagDisplay>
         </CodeDisplayCodeContent>
