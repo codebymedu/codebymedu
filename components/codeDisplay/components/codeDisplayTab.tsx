@@ -1,12 +1,12 @@
 "use client";
 
-import { ReactNode } from "react";
 import { Tab, Tabs } from "@nextui-org/react";
 import {
   UserIcon,
   EnvelopeIcon,
   ChatBubbleLeftIcon,
   CodeBracketIcon,
+  FireIcon,
 } from "@heroicons/react/20/solid";
 
 type CodeDisplayTabProps = {};
@@ -44,6 +44,8 @@ export const CodeDisplayTab = ({}: CodeDisplayTabProps) => {
             <ChatBubbleLeftIcon width={18} />
 
             <span>askAI.tsx</span>
+
+            <FireIcon width={18} className="text-warning animate-pulse" />
           </div>
         }
       />

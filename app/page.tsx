@@ -11,14 +11,14 @@ export default function Home() {
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-lg text-center justify-center">
         <h1 className={title()}>Hi, I am</h1>
-        <h1 className={title({ color: "violet" })}> Medu</h1>
+        <h1 className={title({ color: "violet" })}> &#36;&#123;Medu&#125;</h1>
         <br />
         <h2 className={subtitle({ class: "mt-4" })}>
           You won&lsquo;t believe how simple and dynamic your web apps can be.
         </h2>
       </div>
 
-      <div className="w-11/12 items-center mt-8">
+      <div className="w-9/12 items-center mt-8">
         <CodeDisplay>
           <CodeDisplayTab />
         </CodeDisplay>
