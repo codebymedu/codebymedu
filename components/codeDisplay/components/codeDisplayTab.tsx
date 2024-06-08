@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { TagDisplay } from "@codebymedu/components/tagDisplay";
 import { CodeDisplayCodeContent } from "@codebymedu/components/codeDisplay/components/codeDisplayCodeContent";
+import { AskAi } from "@codebymedu/components/askAi/askAi";
 
 type CodeDisplayTabProps = {};
 
@@ -98,7 +99,9 @@ export const CodeDisplayTab = ({}: CodeDisplayTabProps) => {
           </div>
         }
         className="w-full"
-      />
+      >
+        <AskAi />
+      </Tab>
 
       <Tab
         key="contact"
