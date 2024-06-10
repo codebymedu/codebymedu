@@ -29,7 +29,7 @@ export const askGpt = async (question: string) => {
     console.log({ typedError });
 
     if ((typedError?.code || "") === "insufficient_quota") {
-      return { status: "insufficient_quota" };
+      return { status: "no_credits" };
     }
 
     return { status: "unknown_error" };
