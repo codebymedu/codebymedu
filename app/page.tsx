@@ -3,8 +3,6 @@ import {
   CodeDisplayTab,
 } from "@codebymedu/components/codeDisplay/codeDisplay";
 import { title, subtitle } from "@codebymedu/components/primitives";
-import { Tab, Tabs } from "@nextui-org/react";
-import { UserIcon } from "@heroicons/react/16/solid";
 
 export default function Home() {
   return (

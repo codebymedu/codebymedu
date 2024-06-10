@@ -11,6 +11,7 @@ import {
 import { TagDisplay } from "@codebymedu/components/tagDisplay";
 import { CodeDisplayCodeContent } from "@codebymedu/components/codeDisplay/components/codeDisplayCodeContent";
 import { AskAi } from "@codebymedu/components/askAi/askAi";
+import { CodeDisplayAboutMeTab } from "@codebymedu/components/codeDisplay/components/codeDisplayAboutMeTab";
 
 type CodeDisplayTabProps = {};
 
@@ -35,24 +36,7 @@ export const CodeDisplayTab = ({}: CodeDisplayTabProps) => {
         }
         className="w-full"
       >
-        <CodeDisplayCodeContent>
-          <TagDisplay tag="AboutMe">
-            <TagDisplay tag="Name">Meduard Krasniqi (Medu)</TagDisplay>
-
-            <TagDisplay tag="Focus">Frontend Development</TagDisplay>
-
-            <TagDisplay tag="Skills">
-              Making web apps simple and dynamic
-            </TagDisplay>
-
-            <TagDisplay tag="Experience">Frontend Technical Lead</TagDisplay>
-
-            <TagDisplay tag="Philosophy">
-              Don&lsquo;t think I&lsquo;m just about code—I&lsquo;m about
-              creating awesome experiences.
-            </TagDisplay>
-          </TagDisplay>
-        </CodeDisplayCodeContent>
+        <CodeDisplayAboutMeTab />
       </Tab>
 
       <Tab
@@ -117,7 +101,9 @@ export const CodeDisplayTab = ({}: CodeDisplayTabProps) => {
         <CodeDisplayCodeContent>
           <TagDisplay tag="AboutMe">
             <TagDisplay tag="Email">
-              <Link href="mailto:03medu@gmail.com">03medu@gmail.com</Link>
+              <Link href="mailto:contact@codebymedu.com">
+                contact@codebymedu.com
+              </Link>
             </TagDisplay>
 
             <TagDisplay tag="GitHub">
@@ -127,8 +113,11 @@ export const CodeDisplayTab = ({}: CodeDisplayTabProps) => {
             </TagDisplay>
 
             <TagDisplay tag="Linkedin">
-              <Link target="_blank" href="https://www.linkedin.com/in/03medu/">
-                linkedin.com/in/03medu
+              <Link
+                target="_blank"
+                href="https://www.linkedin.com/in/codebymedu/"
+              >
+                linkedin.com/in/codebymedu
               </Link>
             </TagDisplay>
           </TagDisplay>

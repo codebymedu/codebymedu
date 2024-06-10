@@ -1,7 +1,20 @@
 import { Input } from "@nextui-org/react";
 import { ArrowRightIcon, UserIcon } from "@heroicons/react/16/solid";
+import { useState } from "react";
 
 export const AskAi = () => {
+  // --- STATE --
+
+  const [messages, setMessages] = useState([]);
+
+  // --- CALLBACKS ---
+
+  const askAi = async (question: string) => {
+    const response = await fetch(`/ask-ai?question=${question}`);
+
+    return await response.json();
+  };
+
   // --- RENDER ---
 
   return (
