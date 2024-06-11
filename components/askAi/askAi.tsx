@@ -3,18 +3,15 @@ import { useFormState } from "react-dom";
 import { AskAiEmptyState } from "@codebymedu/components/askAi/components/askAiEmptyState";
 import { AskAiMessage } from "@codebymedu/components/askAi/components/askAiMessage";
 import { AskAiQuestionInput } from "@codebymedu/components/askAi/components/askAiQuestionInput";
+import { useMessages } from "@codebymedu/components/askAi/utils/useMessages";
+import { askAi } from "@codebymedu/components/askAi/utils/askAiHelpers";
 
 export const AskAi = () => {
   const chatEndRef = useRef<HTMLDivElement>(null);
 
-  // --- STATE 1 --
+  // --- STATE= --
 
-  const [messages, setMessages] = useState<
-    {
-      message: string;
-      sentBy: "user" | "system";
-    }[]
-  >([]);
+  const { addMessage, messages } = useMessages();
 
   // --- CALLBACKS ---
 
@@ -22,7 +19,7 @@ export const AskAi = () => {
     _: unknown,
     formData: FormData
   ): Promise<{
-    status: "success" | "unknown_error" | "disabled" | "no_credits" | null;
+    status: "success" | "unknown_error" | "limit_reached" | "no_credits" | null;
   }> => {
     const question = formData.get("question") as string;
 
@@ -30,34 +27,18 @@ export const AskAi = () => {
       return { status: null };
     }
 
-    setMessages((latestMessages) => [
-      ...latestMessages,
-      {
-        message: question,
-        sentBy: "user",
-      },
-    ]);
+    addMessage({
+      message: question,
+      sentBy: "user",
+    });
 
-    const response = await fetch(`/ask-ai?question=${question}`);
-    const responseBody = await response.json();
+    const { message, status } = await askAi(question);
 
-    if (responseBody.status === "no_credits") {
-      return { status: "no_credits" };
+    if (message) {
+      addMessage(message);
     }
 
-    if (responseBody.status === "success") {
-      setMessages((latestMessages) => [
-        ...latestMessages,
-        {
-          message: responseBody.answer.results.choices[0].message.content,
-          sentBy: "system",
-        },
-      ]);
-
-      return { status: "success" };
-    }
-
-    return { status: "unknown_error" };
+    return { status };
   };
 
   // --- STATE 2 ---

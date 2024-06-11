@@ -7,5 +7,9 @@ export const AskAiEmptyState = () => (
     <p className="text-gray-400">
       Start by asking something you want to know about me :)
     </p>
+
+    <p className="text-xs text-gray-300">
+      Because of costs, there is a limit of 10 questions in this chat.
+    </p>
   </div>
 );

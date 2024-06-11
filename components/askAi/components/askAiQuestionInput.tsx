@@ -3,7 +3,7 @@ import { Input } from "@nextui-org/react";
 import { useFormStatus } from "react-dom";
 
 type AskAiQuestionInputProps = {
-  status: "success" | "unknown_error" | "disabled" | "no_credits" | null;
+  status: "success" | "unknown_error" | "limit_reached" | "no_credits" | null;
 };
 
 export const AskAiQuestionInput = ({ status }: AskAiQuestionInputProps) => {
@@ -20,7 +20,9 @@ export const AskAiQuestionInput = ({ status }: AskAiQuestionInputProps) => {
       variant="flat"
       name="question"
       endContent={<ArrowRightIcon width={18} />}
-      disabled={status === "disabled" || pending || status === "no_credits"}
+      disabled={
+        status === "limit_reached" || pending || status === "no_credits"
+      }
       className="focus:outline-none"
     />
   );

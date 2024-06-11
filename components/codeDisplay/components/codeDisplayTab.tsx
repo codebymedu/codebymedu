@@ -101,13 +101,20 @@ export const CodeDisplayTab = ({}: CodeDisplayTabProps) => {
         <CodeDisplayCodeContent>
           <TagDisplay tag="AboutMe">
             <TagDisplay tag="Email">
-              <Link href="mailto:contact@codebymedu.com">
+              <Link
+                href="mailto:contact@codebymedu.com"
+                className="dark:text-white text-black"
+              >
                 contact@codebymedu.com
               </Link>
             </TagDisplay>
 
             <TagDisplay tag="GitHub">
-              <Link target="_blank" href="https://github.com/codebymedu/">
+              <Link
+                target="_blank"
+                href="https://github.com/codebymedu/"
+                className="dark:text-white text-black"
+              >
                 github.com/codebymedu
               </Link>
             </TagDisplay>
@@ -116,6 +123,7 @@ export const CodeDisplayTab = ({}: CodeDisplayTabProps) => {
               <Link
                 target="_blank"
                 href="https://www.linkedin.com/in/codebymedu/"
+                className="dark:text-white text-black"
               >
                 linkedin.com/in/codebymedu
               </Link>
