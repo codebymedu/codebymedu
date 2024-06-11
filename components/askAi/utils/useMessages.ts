@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const useMessages = (): {
   addMessage: (message: Message) => void;
@@ -11,7 +11,16 @@ export const useMessages = (): {
       message: string;
       sentBy: "user" | "system";
     }[]
-  >([]);
+  >(() => {
+    const savedMessages = localStorage.getItem("messages");
+    return savedMessages ? JSON.parse(savedMessages) : [];
+  });
+
+  // --- EFFECTS ---
+
+  useEffect(() => {
+    localStorage.setItem("messages", JSON.stringify(messages));
+  }, [messages]);
 
   // --- CALLBACKS ---
 
@@ -20,7 +29,6 @@ export const useMessages = (): {
   };
 
   // --- RETURN ---
-
   return {
     addMessage: handleAddMessage,
     messages: messages,
