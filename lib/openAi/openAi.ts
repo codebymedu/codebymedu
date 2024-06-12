@@ -31,6 +31,6 @@ export const askGpt = async (question: string) => {
       return { status: "no_credits" };
     }
 
-    return { status: "unknown_error" };
+    return { status: "unknown_error", error };
   }
 };
