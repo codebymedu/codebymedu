@@ -2,7 +2,7 @@ import { TagDisplay } from "@codebymedu/components/tagDisplay";
 import { CodeDisplayCodeContent } from "@codebymedu/components/codeDisplay/components/codeDisplayCodeContent";
 
 export const CodeDisplayAboutMeTab = () => (
-  <CodeDisplayCodeContent>
+  <CodeDisplayCodeContent className="h-64">
     <TagDisplay tag="AboutMe">
       <TagDisplay tag="Name">Meduard Krasniqi (Medu)</TagDisplay>
 

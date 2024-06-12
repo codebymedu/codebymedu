@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
 import { AskAiEmptyState } from "@codebymedu/components/askAi/components/askAiEmptyState";
 import { AskAiMessage } from "@codebymedu/components/askAi/components/askAiMessage";
 import { AskAiQuestionInput } from "@codebymedu/components/askAi/components/askAiQuestionInput";
 import { useMessages } from "@codebymedu/components/askAi/utils/useMessages";
 import { askAi } from "@codebymedu/components/askAi/utils/askAiHelpers";
+import { AskAiMessageLoading } from "@codebymedu/components/askAi/components/askAiMessageLoading";
 
 export const AskAi = () => {
   const chatEndRef = useRef<HTMLDivElement>(null);
@@ -56,9 +57,12 @@ export const AskAi = () => {
   // --- RENDER ---
 
   return (
-    <div className="overflow-hidden h-56 flex flex-col justify-between">
+    <form
+      action={dispatchAskAi}
+      className="overflow-hidden h-64 flex flex-col justify-between outline-none"
+    >
       {messages.length > 0 ? (
-        <div className="w-full flex  my-2 h-full overflow-y-scroll flex-col	">
+        <div className="w-full flex  my-2 h-full overflow-y-scroll flex-col	relative">
           {messages.map((message, index) => (
             <AskAiMessage
               key={index}
@@ -73,12 +77,11 @@ export const AskAi = () => {
         <AskAiEmptyState />
       )}
 
-      <form
-        action={dispatchAskAi}
-        className="flex w-full flex-wrap md:flex-nowrap mt-auto"
-      >
+      <div className="flex flex-col w-full flex-wrap md:flex-nowrap mt-auto relative">
+        <AskAiMessageLoading />
+
         <AskAiQuestionInput status={formState.status} />
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };

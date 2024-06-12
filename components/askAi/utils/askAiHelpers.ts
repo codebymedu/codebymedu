@@ -18,7 +18,7 @@ export const askAi = async (
     return {
       status: "success",
       message: {
-        message: "responseBody.answer.results.choices[0].message.content",
+        message: responseBody.answer.results.choices[0].message.content,
         sentBy: "system",
       },
     };

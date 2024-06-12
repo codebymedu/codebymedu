@@ -1,9 +1,11 @@
+import clsx from "clsx";
 import { ReactNode } from "react";
 
-type CodeDisplayCodeContentProps = { children: ReactNode };
+type CodeDisplayCodeContentProps = { children: ReactNode; className?: string };
 
 export const CodeDisplayCodeContent = ({
   children,
+  className,
 }: CodeDisplayCodeContentProps) => {
   // --- HELPERS ---
 
@@ -12,7 +14,7 @@ export const CodeDisplayCodeContent = ({
   // --- RENDER ---
 
   return (
-    <div className="grid grid-cols-12 ">
+    <div className={clsx("grid grid-cols-12", className)}>
       <div className="w-8 mr-4 flex flex-col items-end col-span-1 ">
         {lineNumbers.map((lineNumber) => (
           <span key={lineNumber} className="pb-1">

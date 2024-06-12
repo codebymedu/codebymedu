@@ -24,9 +24,7 @@ export async function GET(request: Request) {
     requestCounts[userIp] = 0;
   }
 
-  console.log("ey wtf1 ", requestCounts);
   if (requestCounts[userIp] >= 10) {
-    console.log("ey wtf");
     return NextResponse.json({
       status: "limit_reached",
     });
@@ -34,12 +32,11 @@ export async function GET(request: Request) {
 
   requestCounts[userIp] += 1;
 
-  // const answer = await askGpt(question);
+  const answer = await askGpt(question);
 
-  // if (answer.status !== "success") {
-  //   return NextResponse.json({ status: answer.status });
-  // }
+  if (answer.status !== "success") {
+    return NextResponse.json({ status: answer.status });
+  }
 
-  // return NextResponse.json({ status: "success", answer });
-  return NextResponse.json({ status: "success" });
+  return NextResponse.json({ status: "success", answer });
 }
