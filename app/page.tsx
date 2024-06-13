@@ -6,6 +6,7 @@ import { title, subtitle } from "@codebymedu/components/primitives";
 import { CodeDisplayTabContent } from "@codebymedu/components/codeDisplay/components/codeDisplayTabContent";
 import { Suspense } from "react";
 import { Spinner } from "@nextui-org/react";
+import { Skeleton } from "@nextui-org/skeleton";
 
 export default function Home() {
   return (
@@ -24,7 +25,7 @@ export default function Home() {
           <Suspense
             fallback={
               <div className="w-full flex justify-center">
-                <Spinner />
+                <Skeleton className="w-full h-72" />
               </div>
             }
           >
