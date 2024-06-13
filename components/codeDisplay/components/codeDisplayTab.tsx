@@ -1,26 +1,34 @@
 "use client";
 
-import { Tab, Tabs } from "@nextui-org/react";
+import {
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+  Menu,
+  MenuItem,
+  Tab,
+  Tabs,
+} from "@nextui-org/react";
 import {
   UserIcon,
   EnvelopeIcon,
   ChatBubbleLeftIcon,
   CodeBracketIcon,
   FireIcon,
+  ChevronDownIcon,
 } from "@heroicons/react/20/solid";
 import { Key, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
+// Display only active tab in mobile, and display a dropdown next to it to change tabs
 export const CodeDisplayTab = () => {
-  // --- STATE ---
-
   const [selected, setSelected] = useState("aboutMe");
 
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-
-  // --- CALLBACKS ---
 
   const handleTabChange = (tabKey: Key) => {
     setSelected(tabKey as string);
@@ -32,65 +40,77 @@ export const CodeDisplayTab = () => {
     router.replace(`${pathname}?${newSearchParams.toString()}`);
   };
 
-  // --- RENDER ---
+  const tabs = [
+    { key: "aboutMe", label: "aboutMe.tsx", icon: <UserIcon width={18} /> },
+    {
+      key: "skills",
+      label: "skills.tsx",
+      icon: <CodeBracketIcon width={18} />,
+    },
+    {
+      key: "askAi",
+      label: "askAI.tsx",
+      icon: <ChatBubbleLeftIcon width={18} />,
+      extra: <FireIcon width={18} className="text-warning animate-pulse" />,
+    },
+    { key: "contact", label: "contact.tsx", icon: <EnvelopeIcon width={18} /> },
+  ];
 
   return (
-    <Tabs
-      aria-label="Options"
-      color="secondary"
-      variant="bordered"
-      selectedKey={selected}
-      onSelectionChange={handleTabChange}
-    >
-      <Tab
-        key="aboutMe"
-        title={
-          <div className="flex items-center space-x-2">
-            <UserIcon width={18} />
+    <div>
+      <div className="block md:hidden ">
+        <Dropdown>
+          <DropdownTrigger>
+            <Button className="flex items-center space-x-2  p-2 rounded-md w-full">
+              {tabs.find((tab) => tab.key === selected)?.icon}
 
-            <span>aboutMe.tsx</span>
-          </div>
-        }
-        className="w-full"
-      />
+              {tabs.find((tab) => tab.key === selected)?.label}
 
-      <Tab
-        key="skills"
-        title={
-          <div className="flex items-center space-x-2">
-            <CodeBracketIcon width={18} />
+              <ChevronDownIcon width={18} />
+            </Button>
+          </DropdownTrigger>
 
-            <span>skills.tsx</span>
-          </div>
-        }
-        className="w-full"
-      />
+          <DropdownMenu aria-label="Tabs">
+            {tabs.map((tab) => (
+              <DropdownItem
+                key={tab.key}
+                onClick={() => handleTabChange(tab.key)}
+                className="p-2 flex  items-center  space-x-2"
+              >
+                <div className="flex flex-row gap-5">
+                  {tab.icon}
 
-      <Tab
-        key="askAi"
-        title={
-          <div className="flex items-center space-x-2">
-            <ChatBubbleLeftIcon width={18} />
+                  {tab.label}
+                </div>
+              </DropdownItem>
+            ))}
+          </DropdownMenu>
+        </Dropdown>
+      </div>
 
-            <span>askAI.tsx</span>
-
-            <FireIcon width={18} className="text-warning animate-pulse" />
-          </div>
-        }
-        className="w-full"
-      />
-
-      <Tab
-        key="contact"
-        title={
-          <div className="flex items-center space-x-2">
-            <EnvelopeIcon width={18} />
-
-            <span>contact.tsx</span>
-          </div>
-        }
-        className="w-full"
-      />
-    </Tabs>
+      <div className="hidden md:block">
+        <Tabs
+          aria-label="Options"
+          color="secondary"
+          variant="bordered"
+          selectedKey={selected}
+          onSelectionChange={handleTabChange}
+        >
+          {tabs.map((tab) => (
+            <Tab
+              key={tab.key}
+              title={
+                <div className="flex items-center space-x-2">
+                  {tab.icon}
+                  <span>{tab.label}</span>
+                  {tab.extra}
+                </div>
+              }
+              className="w-full"
+            />
+          ))}
+        </Tabs>
+      </div>
+    </div>
   );
 };

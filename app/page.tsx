@@ -7,20 +7,28 @@ import { CodeDisplayTabContent } from "@codebymedu/components/codeDisplay/compon
 import { Suspense } from "react";
 import { Spinner } from "@nextui-org/react";
 import { Skeleton } from "@nextui-org/skeleton";
+import clsx from "clsx";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+    <section className="flex flex-col items-center justify-center gap-4 md:py-8 md:py-10">
       <div className="inline-block max-w-lg text-center justify-center">
-        <h1 className={title()}>Hi, I am</h1>
-        <h1 className={title({ color: "violet" })}> &#36;&#123;Medu&#125;</h1>
+        <h1 className={title()}>
+          Hi, I am
+          <span className={title({ color: "violet" })}>
+            {" "}
+            &#36;&#123;Medu&#125;
+          </span>
+        </h1>
+
         <br />
+
         <h2 className={subtitle({ class: "mt-4" })}>
           You won&lsquo;t believe how simple and dynamic your web apps can be.
         </h2>
       </div>
 
-      <div className="w-9/12 items-center mt-8">
+      <div className="w-full md:w-9/12 items-center md:mt-8">
         <CodeDisplay>
           <Suspense
             fallback={
