@@ -59,7 +59,7 @@ export const AskAi = () => {
   return (
     <form
       action={dispatchAskAi}
-      className="overflow-hidden h-64 flex flex-col justify-between outline-none"
+      className="overflow-hidden h-64 flex flex-col justify-between outline-none w-full  pt-4"
     >
       {messages.length > 0 ? (
         <div className="w-full flex  my-2 h-full overflow-y-scroll flex-col	relative">

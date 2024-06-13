@@ -3,6 +3,7 @@ import {
   CodeDisplayTab,
 } from "@codebymedu/components/codeDisplay/codeDisplay";
 import { title, subtitle } from "@codebymedu/components/primitives";
+import { CodeDisplayTabContent } from "@codebymedu/components/codeDisplay/components/codeDisplayTabContent";
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
       <div className="w-9/12 items-center mt-8">
         <CodeDisplay>
           <CodeDisplayTab />
+
+          <CodeDisplayTabContent />
         </CodeDisplay>
       </div>
     </section>
