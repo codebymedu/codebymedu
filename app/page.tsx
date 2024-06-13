@@ -21,8 +21,6 @@ export default function Home() {
 
       <div className="w-9/12 items-center mt-8">
         <CodeDisplay>
-          <CodeDisplayTab />
-
           <Suspense
             fallback={
               <div className="w-full flex justify-center">
@@ -30,6 +28,8 @@ export default function Home() {
               </div>
             }
           >
+            <CodeDisplayTab />
+
             <CodeDisplayTabContent />
           </Suspense>
         </CodeDisplay>
