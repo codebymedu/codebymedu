@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
 import { AskAiEmptyState } from "@codebymedu/components/askAi/components/askAiEmptyState";
@@ -59,7 +61,7 @@ export const AskAi = () => {
   return (
     <form
       action={dispatchAskAi}
-      className="overflow-hidden h-64 flex flex-col justify-between outline-none w-full  pt-4"
+      className="overflow-hidden md:h-64 flex flex-col justify-between outline-none w-full  pt-4"
     >
       {messages.length > 0 ? (
         <div className="w-full flex  my-2 h-full overflow-y-scroll flex-col	relative">

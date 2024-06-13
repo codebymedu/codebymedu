@@ -11,11 +11,11 @@ export const siteConfig = {
     },
     {
       label: "What I Offer",
-      href: "#",
+      href: "/services",
     },
     {
       label: "Blog",
-      href: "#",
+      href: "/blog",
     },
   ],
   navMenuItems: [
@@ -25,11 +25,11 @@ export const siteConfig = {
     },
     {
       label: "What I Offer",
-      href: "#",
+      href: "/services",
     },
     {
       label: "Blog",
-      href: "#",
+      href: "/blog",
     },
   ],
   links: {

@@ -22,13 +22,18 @@ import {
 import { Key, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
-// Display only active tab in mobile, and display a dropdown next to it to change tabs
 export const CodeDisplayTab = () => {
-  const [selected, setSelected] = useState("aboutMe");
+  // --- STATE ---
 
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
+
+  const [selected, setSelected] = useState(
+    searchParams.get("tab") || "aboutMe"
+  );
+
+  // --- CALLBACKS ---
 
   const handleTabChange = (tabKey: Key) => {
     setSelected(tabKey as string);
@@ -39,6 +44,8 @@ export const CodeDisplayTab = () => {
 
     router.replace(`${pathname}?${newSearchParams.toString()}`);
   };
+
+  // --- HELPERS ---
 
   const tabs = [
     { key: "aboutMe", label: "aboutMe.tsx", icon: <UserIcon width={18} /> },
@@ -55,6 +62,8 @@ export const CodeDisplayTab = () => {
     },
     { key: "contact", label: "contact.tsx", icon: <EnvelopeIcon width={18} /> },
   ];
+
+  // --- RENDER ---
 
   return (
     <div>

@@ -14,11 +14,11 @@ export const AskAiMessage = ({ message, sentBy }: AskAiMessageProps) => (
     )}
   >
     {sentBy === "user" ? (
-      <Card className="w-96 ml-auto text-wrap shadow-none bg-neutral-100 dark:bg-neutral-700">
+      <Card className="md:w-96 ml-auto text-wrap shadow-none bg-neutral-100 dark:bg-neutral-700">
         <CardBody>You: {message}</CardBody>
       </Card>
     ) : (
-      <Card className="w-96  text-wrap shadow-none bg-neutral-200 dark:bg-neutral-800">
+      <Card className="md:w-96  text-wrap shadow-none bg-neutral-200 dark:bg-neutral-800">
         <CardBody>AI: {message}</CardBody>
       </Card>
     )}
