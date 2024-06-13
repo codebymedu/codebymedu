@@ -4,6 +4,8 @@ import {
 } from "@codebymedu/components/codeDisplay/codeDisplay";
 import { title, subtitle } from "@codebymedu/components/primitives";
 import { CodeDisplayTabContent } from "@codebymedu/components/codeDisplay/components/codeDisplayTabContent";
+import { Suspense } from "react";
+import { Spinner } from "@nextui-org/react";
 
 export default function Home() {
   return (
@@ -21,7 +23,15 @@ export default function Home() {
         <CodeDisplay>
           <CodeDisplayTab />
 
-          <CodeDisplayTabContent />
+          <Suspense
+            fallback={
+              <div className="w-full flex justify-center">
+                <Spinner />
+              </div>
+            }
+          >
+            <CodeDisplayTabContent />
+          </Suspense>
         </CodeDisplay>
       </div>
     </section>
