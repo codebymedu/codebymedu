@@ -1,7 +1,7 @@
 import "@codebymedu/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
-
+import Script from "next/script";
 import { Providers } from "./providers";
 
 import { siteConfig } from "@codebymedu/config/site";
@@ -34,7 +34,21 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <head />
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XC4MEPERZ0"
+        />
+
+        <Script>
+          {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XC4MEPERZ0');`}
+        </Script>
+      </head>
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
