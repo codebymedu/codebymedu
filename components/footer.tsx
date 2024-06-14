@@ -12,7 +12,11 @@ export const Footer = () => {
 
         <div className="flex gap-4">
           {siteConfig.navItems.map((link) => (
-            <Link className="text-black dark:invert" href={link.href}>
+            <Link
+              key={link.href}
+              className="text-black dark:invert"
+              href={link.href}
+            >
               {link.label}
             </Link>
           ))}
