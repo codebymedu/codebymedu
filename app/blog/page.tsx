@@ -1,3 +1,4 @@
+import { EmailSubscriptionForm } from "@codebymedu/components/emailSubscriptionForm";
 import { subtitle, title } from "@codebymedu/components/primitives";
 
 export default function Blog() {
@@ -12,6 +13,8 @@ export default function Blog() {
           You Are Not Be Ready for What is Coming
         </h2>
       </div>
+
+      <EmailSubscriptionForm />
     </div>
   );
 }

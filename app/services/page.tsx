@@ -1,3 +1,4 @@
+import { EmailSubscriptionForm } from "@codebymedu/components/emailSubscriptionForm";
 import { subtitle, title } from "@codebymedu/components/primitives";
 
 export default function Services() {
@@ -12,6 +13,8 @@ export default function Services() {
           Stay Away if You Do Not Want Top Quality
         </h2>
       </div>
+
+      <EmailSubscriptionForm />
     </div>
   );
 }
