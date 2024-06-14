@@ -9,7 +9,11 @@ const emailSchema = z.object({
   email: z.string().email("Invalid email address"),
 });
 
-export const EmailSubscriptionForm = () => {
+type EmailSubscriptionFormProps = { label?: string };
+
+export const EmailSubscriptionForm = ({
+  label = "Subscribe to get notified",
+}: EmailSubscriptionFormProps) => {
   // --- CALLBACKS ---
 
   const handleSubscribe = async (_: unknown, formData: FormData) => {
@@ -47,7 +51,7 @@ export const EmailSubscriptionForm = () => {
       action={dispatchHandleSubscribe}
       className="flex flex-col gap-4 items-center mt-16"
     >
-      <h3>Subscribe to get notified</h3>
+      <h3>{label}</h3>
       <div className="flex gap-4  ">
         <Input
           isClearable

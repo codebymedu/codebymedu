@@ -7,6 +7,7 @@ import { Providers } from "./providers";
 import { siteConfig } from "@codebymedu/config/site";
 import { fontSans } from "@codebymedu/config/fonts";
 import { Navbar } from "@codebymedu/components/navbar";
+import { Footer } from "@codebymedu/components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -48,7 +49,7 @@ export default function RootLayout({
               {children}
             </main>
 
-            <footer className="w-full flex items-center justify-center py-3"></footer>
+            <Footer />
           </div>
         </Providers>
       </body>
