@@ -47,7 +47,6 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: "/presentational.png",
   },
-  viewport: "width=device-width, initial-scale=1.0",
 };
 
 export const viewport: Viewport = {
