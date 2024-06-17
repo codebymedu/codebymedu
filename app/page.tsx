@@ -1,6 +1,6 @@
 import { LandingHero } from "@codebymedu/components/landing/landingHero";
 import { LandingSkills } from "@codebymedu/components/landing/landingSkills";
-import { Metadata } from "next";
+import { LandingProjects } from "@codebymedu/components/landing/landingProjects";
 
 export default function Home() {
   return (
@@ -8,6 +8,8 @@ export default function Home() {
       <LandingHero />
 
       <LandingSkills />
+
+      <LandingProjects />
     </>
   );
 }

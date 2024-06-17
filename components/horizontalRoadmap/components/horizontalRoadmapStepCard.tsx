@@ -29,7 +29,12 @@ export const HorizontalRoadmapStepCard = ({
   >
     <div className="flex items-start col-span-1 justify-between">
       <div className="flex gap-4 items-start">
-        <div className="h-2 w-2 bg-violet-700 rounded-full"></div>
+        <div
+          className={clsx(
+            "min-h-2 min-w-2 rounded-full",
+            isStepActive ? "bg-white" : "bg-violet-700"
+          )}
+        />
 
         <p
           className={clsx(
@@ -40,8 +45,6 @@ export const HorizontalRoadmapStepCard = ({
           {step.title}
         </p>
       </div>
-
-      <p className="text-xs -mt-1 text-white ">{step.id}</p>
     </div>
 
     <Progress

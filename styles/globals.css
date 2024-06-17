@@ -18,3 +18,20 @@
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #555;
 }
+
+/* --- SWIPER --- */
+
+.swiper-pagination-bullet {
+  background-color: #999;
+  opacity: 0.6;
+}
+
+.dark .swiper-pagination-bullet {
+  background-color: #fff;
+  opacity: 0.6;
+}
+
+.dark .swiper-pagination-bullet-active {
+  background-color: #007bff;
+  opacity: 1;
+}

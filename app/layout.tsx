@@ -1,4 +1,8 @@
 import "@codebymedu/styles/globals.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import Script from "next/script";
