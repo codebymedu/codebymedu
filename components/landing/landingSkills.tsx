@@ -11,7 +11,7 @@ export const LandingSkills = () => {
           "mx-auto mb-12"
         )}
       >
-        How I Transform Your Ideas Into Reality.
+        How I Transform Your Ideas Into Reality
       </h2>
 
       <HorizontalRoadmap />

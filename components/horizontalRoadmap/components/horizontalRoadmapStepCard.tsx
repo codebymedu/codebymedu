@@ -21,7 +21,7 @@ export const HorizontalRoadmapStepCard = ({
     className={clsx(
       "flex flex-col gap-4 h-full justify-between px-3 py-6 rounded-lg cursor-pointer min-w-56 ",
       isStepActive
-        ? "bg-gradient-to-t from-violet-600/50 to-violet-400/50"
+        ? "bg-gradient-to-t from-violet-800/90 to-violet-600/90"
         : undefined
     )}
     onClick={() => handleChangeStep(step.id)}
@@ -52,7 +52,7 @@ export const HorizontalRoadmapStepCard = ({
       value={isStepSeen ? 100 : 0}
       classNames={{
         track: "drop-shadow-md border border-default",
-        indicator: "bg-gradient-to-r from-violet-300 to-violet-500",
+        indicator: "bg-gradient-to-r from-violet-500 to-violet-700",
       }}
     />
   </div>
