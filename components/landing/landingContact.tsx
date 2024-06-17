@@ -93,7 +93,7 @@ export const LandingContact = () => {
       return { status: "error" };
     }
 
-    toast.success("I received your message, I'll get in touch shortly.");
+    toast.success("I received your message, I'll get in contact you shortly.");
 
     return { status: "success" };
   };
@@ -132,7 +132,7 @@ export const LandingContact = () => {
               />
 
               <h2 className="text-2xl mb-6 font-thin">
-                I'll reply within the same day
+                I&apos;ll reply within the same day
               </h2>
 
               <div className="flex flex-col md:flex-row gap-4 w-full">
