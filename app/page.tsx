@@ -7,9 +7,7 @@ export default function Home() {
     <>
       <LandingHero />
 
-      {/* <LandingSkills /> */}
-
-      {/* <LandingEmailSubscriptionForm /> */}
+      <LandingSkills />
     </>
   );
 }
