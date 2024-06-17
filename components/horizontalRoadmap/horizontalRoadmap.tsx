@@ -169,7 +169,7 @@ export const HorizontalRoadmap = () => {
 
             <ul className="list-disc pl-4 mb-6">
               {activeStep.deliverables.map((deliverable) => (
-                <li>{deliverable}</li>
+                <li key={deliverable}>{deliverable}</li>
               ))}
             </ul>
 
@@ -177,7 +177,7 @@ export const HorizontalRoadmap = () => {
 
             <ul className="list-disc pl-4 ">
               {activeStep.tools.map((tool) => (
-                <li>{tool}</li>
+                <li key={tool}>{tool}</li>
               ))}
             </ul>
           </CardBody>
