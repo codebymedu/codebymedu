@@ -12,8 +12,8 @@ export const ProjectSwiper = () => (
     pagination={{ clickable: true }}
     modules={[Pagination, Navigation]}
   >
-    {projects.map((project) => (
-      <SwiperSlide key={project.title}>
+    {projects.map((project, index) => (
+      <SwiperSlide key={index}>
         <ProjectSwiperProjectSlide project={project} />
       </SwiperSlide>
     ))}
