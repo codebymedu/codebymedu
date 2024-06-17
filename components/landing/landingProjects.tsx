@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
+import { EmailSubscriptionForm } from "@codebymedu/components/emailSubscriptionForm";
 
 const projects = [
   {
@@ -106,8 +107,8 @@ export const LandingProjects = () => {
                   <Card isFooterBlurred radius="lg" className="border-none">
                     <Image
                       alt={project.repo}
-                      className="object-cover"
-                      height={400}
+                      className="object-fit"
+                      height={300}
                       src={project.image}
                       width={300}
                     />
@@ -133,8 +134,16 @@ export const LandingProjects = () => {
           ))}
 
           <SwiperSlide>
-            <div className="flex justify-between w-10/12 mx-auto">
-              coming soon
+            <div className="flex items-center flex-col w-10/12 mx-auto">
+              <h3 className="font-light text-xl mb-4">
+                You Haven&apos;t Seen Anything Yet
+              </h3>
+
+              <div className="">
+                More innovative projects are on the way. Don’t miss out!
+              </div>
+
+              <EmailSubscriptionForm />
             </div>
           </SwiperSlide>
         </Swiper>
