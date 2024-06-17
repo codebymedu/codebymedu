@@ -12,6 +12,7 @@ import { siteConfig } from "@codebymedu/config/site";
 import { fontSans } from "@codebymedu/config/fonts";
 import { Navbar } from "@codebymedu/components/navbar";
 import { Footer } from "@codebymedu/components/footer";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: {
@@ -94,6 +95,8 @@ export default function RootLayout({
 
             <Footer />
           </div>
+
+          <Toaster />
         </Providers>
       </body>
     </html>

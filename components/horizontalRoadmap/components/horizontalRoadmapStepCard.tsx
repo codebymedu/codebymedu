@@ -15,6 +15,7 @@ export const HorizontalRoadmapStepCard = ({
   step,
 }: HorizontalRoadmapStepCardProps) => (
   <div
+    aria-label={step.title}
     role="button"
     tabIndex={0}
     key={step.id}
@@ -25,15 +26,18 @@ export const HorizontalRoadmapStepCard = ({
         : undefined
     )}
     onClick={() => handleChangeStep(step.id)}
-    aria-label={step.title}
   >
-    <div className="flex items-start col-span-1 justify-between">
+    <div
+      className="flex items-start col-span-1 justify-between"
+      aria-label={step.title}
+    >
       <div className="flex gap-4 items-start">
         <div
           className={clsx(
             "min-h-2 min-w-2 rounded-full",
             isStepActive ? "bg-white" : "bg-violet-700"
           )}
+          aria-hidden="true"
         />
 
         <p
