@@ -13,7 +13,7 @@ export const ProjectSwiper = () => (
     modules={[Pagination, Navigation]}
   >
     {projects.map((project) => (
-      <SwiperSlide>
+      <SwiperSlide key={project.title}>
         <ProjectSwiperProjectSlide project={project} />
       </SwiperSlide>
     ))}
