@@ -71,22 +71,26 @@ export const LandingProjects = () => {
         >
           {projects.map((project) => (
             <SwiperSlide key={project.title}>
-              <div className="flex justify-between w-10/12 mx-auto mb-16">
+              <div className="flex flex-col gap-4 lg:flex-row justify-between w-10/12 mx-auto mb-16">
                 <div className="">
                   <h3 className="font-light text-xl mb-4">{project.title}</h3>
 
-                  <div className="mb-8 gap-4 flex">
+                  <div className="mb-8 gap-4 flex flex-wrap">
                     {project.tags.map((tag, index) => (
                       <Chip
+                        key={tag}
                         color={tagColors[index] || "default"}
                         variant="flat"
+                        className=""
                       >
                         {tag}
                       </Chip>
                     ))}
                   </div>
 
-                  <p className="w-96 mb-4">{project.description}</p>
+                  <p className="w-72 md:w-80 lg:w-96 mb-4">
+                    {project.description}
+                  </p>
 
                   <Button
                     as={Link}
@@ -98,7 +102,7 @@ export const LandingProjects = () => {
                   </Button>
                 </div>
 
-                <div className="">
+                <div className="hidden lg:flex">
                   <Card isFooterBlurred radius="lg" className="border-none">
                     <Image
                       alt={project.repo}
