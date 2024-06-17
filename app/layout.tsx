@@ -18,6 +18,31 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  keywords:
+    "frontend engineer, portfolio, web development, JavaScript, React, Next.js, TypeScript, frontend services, blog, UI development, web performance, user experience, software engineering, coding, programming",
+  authors: { name: "Meduard Krasniqi", url: siteConfig.url },
+  openGraph: {
+    type: "website",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [
+      {
+        url: "/presentational.png",
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@codebymedu",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: "/presentational.png",
+  },
+  viewport: "width=device-width, initial-scale=1.0",
 };
 
 export const viewport: Viewport = {

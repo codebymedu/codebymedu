@@ -36,4 +36,5 @@ export const siteConfig = {
     github: "https://github.com/codebymedu/codebymedu",
     twitter: "https://twitter.com/codebymedu",
   },
+  url: "https://codebymedu.com",
 };
