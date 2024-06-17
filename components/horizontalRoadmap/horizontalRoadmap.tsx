@@ -106,54 +106,56 @@ export const HorizontalRoadmap = () => {
   }
 
   return (
-    <div className="mt-16 ">
-      <div className="grid grid-cols-5 gap-8">
-        {steps.map((step) => (
-          <div
-            role="button"
-            tabIndex={0}
-            key={step.id}
-            className={clsx(
-              "flex flex-col gap-4 h-full justify-between px-3 py-6 rounded-lg cursor-pointer",
-              step.id === activeStepId
-                ? "bg-gradient-to-t from-violet-600/50 to-violet-400/50"
-                : undefined
-            )}
-            onClick={() => handleChangeStep(step.id)}
-            aria-label={step.title}
-          >
-            <div className="flex items-start col-span-1 justify-between">
-              <div className="flex gap-4 items-start">
-                <div className="h-2 w-2 bg-violet-700 rounded-full"></div>
+    <div className="mt-16 w-full">
+      <div className="  overflow-x-auto">
+        <div className="min-w-[1200px] grid grid-cols-5 gap-4 ">
+          {steps.map((step) => (
+            <div
+              role="button"
+              tabIndex={0}
+              key={step.id}
+              className={clsx(
+                "flex flex-col gap-4 h-full justify-between px-3 py-6 rounded-lg cursor-pointer min-w-56 ",
+                step.id === activeStepId
+                  ? "bg-gradient-to-t from-violet-600/50 to-violet-400/50"
+                  : undefined
+              )}
+              onClick={() => handleChangeStep(step.id)}
+              aria-label={step.title}
+            >
+              <div className="flex items-start col-span-1 justify-between">
+                <div className="flex gap-4 items-start">
+                  <div className="h-2 w-2 bg-violet-700 rounded-full"></div>
 
-                <p
-                  className={clsx(
-                    "pt-0 -mt-2  ",
-                    step.id === activeStepId
-                      ? "text-white"
-                      : "text-black dark:text-white"
-                  )}
-                >
-                  {step.title}
-                </p>
+                  <p
+                    className={clsx(
+                      "pt-0 -mt-2  ",
+                      step.id === activeStepId
+                        ? "text-white"
+                        : "text-black dark:text-white"
+                    )}
+                  >
+                    {step.title}
+                  </p>
+                </div>
+
+                <p className="text-xs -mt-1 text-white ">{step.id}</p>
               </div>
 
-              <p className="text-xs -mt-1 text-white ">{step.id}</p>
+              <Progress
+                color="default"
+                value={readSteps.includes(step.id) ? 100 : 0}
+                classNames={{
+                  track: "drop-shadow-md border border-default",
+                  indicator: "bg-gradient-to-r from-violet-300 to-violet-500",
+                }}
+              />
             </div>
-
-            <Progress
-              color="default"
-              value={readSteps.includes(step.id) ? 100 : 0}
-              classNames={{
-                track: "drop-shadow-md border border-default",
-                indicator: "bg-gradient-to-r from-violet-300 to-violet-500",
-              }}
-            />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      <div className="mt-8 p-2 flex justify-between">
+      <div className="mt-8 p-2 flex flex-col md:flex-row gap-5 md:gap-0 justify-between">
         <div className=" w-96">
           <h3 className={subtitle()}>
             {activeStep.id}
