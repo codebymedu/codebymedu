@@ -62,6 +62,16 @@ export const HorizontalRoadmap = () => {
 
   // --- CALLBACKS ---
 
+  const handleChangeStep = (stepId: number) => {
+    setActiveStepId(stepId);
+
+    if (readSteps.includes(stepId)) {
+      return;
+    }
+
+    setReadSteps((currentReadSteps) => [...currentReadSteps, stepId]);
+  };
+
   // --- RENDER ---
 
   if (!activeStep) {
@@ -73,24 +83,17 @@ export const HorizontalRoadmap = () => {
       <div className="grid grid-cols-5 gap-8">
         {steps.map((step) => (
           <div
+            role="button"
+            tabIndex={0}
+            key={step.id}
             className={clsx(
               "flex flex-col gap-4 h-full justify-between px-3 py-6 rounded-lg cursor-pointer",
               step.id === activeStepId
                 ? "bg-gradient-to-t from-violet-600/50 to-violet-400/50"
                 : undefined
             )}
-            onClick={() => {
-              setActiveStepId(step.id);
-
-              if (readSteps.includes(step.id)) {
-                return;
-              }
-
-              setReadSteps((currentReadSteps) => [
-                ...currentReadSteps,
-                step.id,
-              ]);
-            }}
+            onClick={() => handleChangeStep(step.id)}
+            aria-label={step.title}
           >
             <div className="flex items-start col-span-1 justify-between">
               <div className="flex gap-4 items-start">
@@ -121,77 +124,9 @@ export const HorizontalRoadmap = () => {
         </h3>
 
         <p>{activeStep.description}</p>
+
+        {/* TODO: Right side: Deliverables, tools, etc. */}
       </div>
     </div>
   );
 };
-
-// export const HorizontalRoadmap = () => {
-//   // --- STATE ---
-
-//   const [activeStepId, setActiveStepId] = useState(1);
-
-//   const activeStep = steps.find(({ id: stepId }) => stepId === activeStepId);
-
-//   // --- CALLBACKS ---
-
-//   // --- RENDER ---
-
-//   if (!activeStep) {
-//     return null;
-//   }
-
-//   return (
-//     <div className="mt-16 ">
-//       <div className="flex w-full mx-auto">
-//         {steps.map((step) => (
-//           <div
-//             key={step.id}
-//             className="flex flex-col cursor-pointer relateive h-16"
-//             onClick={() => setActiveStepId(step.id)}
-//           >
-//             <p className="max-w-32 text-wrap self-end mb-4 absolute -mt-12 -mr-4">
-//               {step.id}
-//               {getOrdinalSuffix(step.id)} Step
-//             </p>
-
-//             <div className="flex items-center">
-//               <div
-//                 className={clsx(
-//                   "h-0.5 ",
-//                   step.id === activeStepId || step.id < activeStepId
-//                     ? "bg-violet-600"
-//                     : "bg-neutral-700 dark:invert",
-//                   step.id === 1 ? "w-0" : "w-32"
-//                 )}
-//               ></div>
-
-//               <div
-//                 className={clsx(
-//                   "h-8 w-8 border-2 rounded-full hover:bg-violet-700 cursor-pointer transition-all duration-200",
-//                   step.id === activeStepId || step.id < activeStepId
-//                     ? "bg-violet-600 border-violet-600 "
-//                     : "border-neutral-700  dark:border-neutral-200"
-//                 )}
-//               ></div>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-
-//       <div className="flex flex-col gap-4 w-full">
-//         {/* <div className="bg-white rounded-md p-4">
-//           <activeStep.Icon className="text-violet-500" height={64} width={64} />
-//         </div> */}
-
-//         <h3 className={subtitle({ className: "font-light" })}>
-//           {activeStep.title}
-//         </h3>
-
-//         <p className="w-[600px]">{activeStep.description}</p>
-//       </div>
-
-//       {/* next button */}
-//     </div>
-//   );
-// };
