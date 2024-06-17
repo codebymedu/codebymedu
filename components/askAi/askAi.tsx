@@ -10,7 +10,7 @@ import { askAi } from "@codebymedu/components/askAi/utils/askAiHelpers";
 import { AskAiMessageLoading } from "@codebymedu/components/askAi/components/askAiMessageLoading";
 
 export const AskAi = () => {
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   // --- STATE= --
 
@@ -53,7 +53,10 @@ export const AskAi = () => {
   // --- EFFECTS ---
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
   }, [messages]);
 
   // --- RENDER ---
@@ -64,7 +67,10 @@ export const AskAi = () => {
       className="overflow-hidden md:h-64 flex flex-col justify-between outline-none w-full  pt-4"
     >
       {messages.length > 0 ? (
-        <div className="w-full flex  my-2 h-full overflow-y-scroll flex-col	relative">
+        <div
+          className="w-full flex  my-2 h-full overflow-y-scroll flex-col	relative"
+          ref={chatContainerRef}
+        >
           {messages.map((message, index) => (
             <AskAiMessage
               key={index}
@@ -72,8 +78,6 @@ export const AskAi = () => {
               sentBy={message.sentBy}
             />
           ))}
-
-          <div ref={chatEndRef} />
         </div>
       ) : (
         <AskAiEmptyState />
