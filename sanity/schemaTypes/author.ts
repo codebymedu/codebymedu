@@ -39,6 +39,7 @@ export default defineType({
       name: "bio",
       title: "Bio",
       type: "array",
+      // @ts-ignore
       of: [
         {
           title: "Block",

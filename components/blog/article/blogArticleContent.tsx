@@ -22,7 +22,7 @@ export const BlogArticleContent = ({ article }: BlogArticleContentProps) => {
   // --- RENDER ---
 
   return (
-    <div className="border-b-[1px] border-neutral-200 pb-12 max-w-[800px]">
+    <div className="border-b-[1px] border-neutral-200 pb-12 min-w-[800px] max-w-[800px]">
       <p className="text-xs mb-8">{formattedPostDate}</p>
 
       <h1 className={clsx(title({ size: "sm" }))}>{article.title}</h1>

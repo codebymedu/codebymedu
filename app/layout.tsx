@@ -15,6 +15,7 @@ import { Footer } from "@codebymedu/components/footer";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://codebymedu.com"),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
