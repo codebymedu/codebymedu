@@ -4,8 +4,8 @@ import { Link } from "@nextui-org/link";
 
 export const Footer = () => {
   return (
-    <footer className=" p-6 ">
-      <div className="container max-w-7xl mx-auto flex flex-col md:flex-row  md:justify-between md:items-center">
+    <footer className="container max-w-7xl mx-auto p-6 border-t-[0.5px] border-neutral-200/50">
+      <div className=" flex flex-col md:flex-row  md:justify-between md:items-center">
         <div className="flex gap-4">
           {siteConfig.navItems.map((link) => (
             <Link
