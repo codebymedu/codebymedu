@@ -37,7 +37,7 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <div className="w-full relative">
-      <div className="flex gap-32 relative">
+      <div className="flex gap-32 relative ">
         <BlogArticleContent article={article} />
 
         <div className="h-auto relative ">

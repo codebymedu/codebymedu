@@ -1,5 +1,5 @@
 import { EmailSubscriptionForm } from "@codebymedu/components/emailSubscriptionForm";
-import { subtitle, title } from "@codebymedu/components/primitives";
+import { title } from "@codebymedu/components/primitives";
 
 export default function Blog() {
   return (
