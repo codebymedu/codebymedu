@@ -15,8 +15,8 @@ export default function Blog() {
         </h1>
 
         <h2 className={subtitle({ class: "mt-4" })}>
-          Explore my latest articles on frontend development tips, tricks, and
-          career advice.
+          Don't miss out on my articles about frontend development and career
+          advice.
         </h2>
       </div>
 

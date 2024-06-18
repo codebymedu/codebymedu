@@ -44,7 +44,7 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
         <div className="h-auto relative ">
           <div className="flex flex-wrap gap-2 sticky top-16">
             {article.categories.map((category) => (
-              <BlogCategoryChip category={category} />
+              <BlogCategoryChip key={category._id} category={category} />
             ))}
           </div>
 
