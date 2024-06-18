@@ -1,10 +1,14 @@
-import { getFormattedDate } from "@codebymedu/components/blog/article/utils/blogArticleHelpers";
+import {
+  getFormattedDate,
+  getSlugFromText,
+} from "@codebymedu/components/blog/article/utils/blogArticleHelpers";
 import { BlogArticle } from "@codebymedu/components/blog/article/utils/blogArticleTypes";
 import { EmailSubscriptionForm } from "@codebymedu/components/emailSubscriptionForm";
 import { subtitle, title } from "@codebymedu/components/primitives";
 import { sanityClient } from "@codebymedu/sanity/lib/client";
 import { urlForImage } from "@codebymedu/sanity/lib/image";
 import Image from "next/image";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function Blog() {
@@ -44,24 +48,25 @@ export default async function Blog() {
 
       <div className="flex justify-between flex-wrap mt-16 mb-32">
         {articles.map((article) => (
-          <div
-            key={article.title}
-            className="w-full md:w-80 lg:w-96 cursor-pointer"
-          >
-            <Image
-              alt={`${article.title} image`}
-              src={urlForImage(article.mainImage)}
-              height={400}
-              width={600}
-              className="object-cover w-full h-52 rounded-xl shadow-xl dark:shadow-neutral-900/30 hover:dark:shadow-neutral-900/90 mb-6"
-            />
+          <Link key={article.title} href={`/blog/${article.slug.current}`}>
+            <div className="w-full md:w-80 lg:w-96 cursor-pointer">
+              <Image
+                alt={`${article.title} image`}
+                src={urlForImage(article.mainImage)}
+                height={400}
+                width={600}
+                className="object-cover w-full h-52 rounded-xl shadow-xl dark:shadow-neutral-900/30 hover:dark:shadow-neutral-900/90 mb-6"
+              />
 
-            <p className="text-xs mb-6">
-              {getFormattedDate(new Date(article._createdAt))}
-            </p>
+              <p className="text-xs mb-6">
+                {getFormattedDate(new Date(article._createdAt))}
+              </p>
 
-            <h1 className="text-xl font-semibold text-wrap">{article.title}</h1>
-          </div>
+              <h1 className="text-xl font-semibold text-wrap">
+                {article.title}
+              </h1>
+            </div>
+          </Link>
         ))}
       </div>
 

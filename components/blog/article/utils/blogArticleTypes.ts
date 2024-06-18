@@ -15,4 +15,5 @@ export type BlogArticle = {
       _type: string;
     };
   };
+  slug: { current: string };
 };
