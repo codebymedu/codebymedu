@@ -30,7 +30,7 @@ export const ContactForm = () => {
       />
 
       <h2 className="text-2xl mb-6 font-thin">
-        I&apos;ll reply within the same day
+        Get a reply within the same day
       </h2>
 
       <div className="flex flex-col md:flex-row gap-4 w-full">
