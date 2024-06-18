@@ -1,8 +1,9 @@
 import { title } from "@codebymedu/components/primitives";
 import clsx from "clsx";
-import { PortableText, PortableTextProps } from "next-sanity";
+import { PortableText } from "next-sanity";
 import { portableTextComponents } from "@codebymedu/components/blog/article/utils/blogArticleConstants";
 import { BlogArticle } from "@codebymedu/components/blog/article/utils/blogArticleTypes";
+import { getFormattedDate } from "@codebymedu/components/blog/article/utils/blogArticleHelpers";
 
 type BlogArticleContentProps = {
   article: BlogArticle;
@@ -13,17 +14,11 @@ export const BlogArticleContent = ({ article }: BlogArticleContentProps) => {
 
   const postDate = new Date(article._createdAt);
 
-  const formattedPostDate = postDate.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-
   // --- RENDER ---
 
   return (
     <div className="border-b-[1px] border-neutral-200 pb-12 min-w-[800px] max-w-[800px]">
-      <p className="text-xs mb-8">{formattedPostDate}</p>
+      <p className="text-xs mb-8">{getFormattedDate(postDate)}</p>
 
       <h1 className={clsx(title({ size: "sm" }))}>{article.title}</h1>
 

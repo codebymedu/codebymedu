@@ -15,3 +15,10 @@ export const getHeadingsFromBlocks = (blocks: PortableTextBlock[]) =>
       level: block.style,
       slug: block.children[0].text.toLowerCase().replace(/\s+/g, "-"),
     }));
+
+export const getFormattedDate = (date: Date) =>
+  date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });

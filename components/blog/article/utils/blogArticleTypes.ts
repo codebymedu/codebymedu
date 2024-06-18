@@ -8,4 +8,11 @@ export type BlogArticle = {
   title: string;
   body: PortableTextBlock[];
   categories: { _id: string; title: string }[];
+  mainImage: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
 };

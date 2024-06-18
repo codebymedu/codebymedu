@@ -1,7 +1,5 @@
 import { sanityClient } from "@codebymedu/sanity/lib/client";
 import { notFound } from "next/navigation";
-import { Chip } from "@nextui-org/react";
-import Link from "next/link";
 import { BlogArticleTableOfContents } from "@codebymedu/components/blog/article/blogArticleTableOfContents";
 import { getHeadingsFromBlocks } from "@codebymedu/components/blog/article/utils/blogArticleHelpers";
 import { BlogArticleContent } from "@codebymedu/components/blog/article/blogArticleContent";
