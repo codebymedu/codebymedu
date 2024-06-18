@@ -6,6 +6,7 @@ import { BlogArticleTableOfContents } from "@codebymedu/components/blog/article/
 import { getHeadingsFromBlocks } from "@codebymedu/components/blog/article/utils/blogArticleHelpers";
 import { BlogArticleContent } from "@codebymedu/components/blog/article/blogArticleContent";
 import { BlogArticle } from "@codebymedu/components/blog/article/utils/blogArticleTypes";
+import { BlogCategoryChip } from "@codebymedu/components/blog/blogCategoryChip";
 
 const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
   // --- DATA ---
@@ -43,11 +44,7 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
         <div className="h-auto relative ">
           <div className="flex flex-wrap gap-2 sticky top-16">
             {article.categories.map((category) => (
-              <Link key={category._id} href={`/blog/category/${category._id}`}>
-                <Chip color="secondary" size="sm" className="mb-4">
-                  {category.title}
-                </Chip>
-              </Link>
+              <BlogCategoryChip category={category} />
             ))}
           </div>
 
