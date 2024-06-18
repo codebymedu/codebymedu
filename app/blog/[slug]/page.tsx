@@ -7,7 +7,7 @@ import { getHeadingsFromBlocks } from "@codebymedu/components/blog/article/utils
 import { BlogArticleContent } from "@codebymedu/components/blog/article/blogArticleContent";
 import { BlogArticle } from "@codebymedu/components/blog/article/utils/blogArticleTypes";
 
-export default async function ({ params }: { params: { slug: string } }) {
+const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
   // --- DATA ---
 
   const article: BlogArticle = await sanityClient.fetch(
@@ -56,4 +56,6 @@ export default async function ({ params }: { params: { slug: string } }) {
       </div>
     </div>
   );
-}
+};
+
+export default BlogArticlePage;
