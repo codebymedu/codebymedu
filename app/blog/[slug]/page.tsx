@@ -5,6 +5,8 @@ import { getHeadingsFromBlocks } from "@codebymedu/components/blog/article/utils
 import { BlogArticleContent } from "@codebymedu/components/blog/article/blogArticleContent";
 import { BlogArticle } from "@codebymedu/components/blog/article/utils/blogArticleTypes";
 import { BlogCategoryChip } from "@codebymedu/components/blog/blogCategoryChip";
+import { Head } from "next/document";
+import { urlForImage } from "@codebymedu/sanity/lib/image";
 
 const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
   // --- DATA ---
@@ -35,21 +37,32 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
   // --- RENDER 2 ---
 
   return (
-    <div className="w-full relative">
-      <div className="flex gap-32 relative ">
-        <BlogArticleContent article={article} />
+    <>
+      <Head>
+        <title>{article.title}</title>
+        <meta name="description" content={article.description} />
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.description} />
+        <meta property="og:image" content={urlForImage(article.mainImage)} />
+        <meta property="og:type" content="article" />
+      </Head>
 
-        <div className="h-auto relative ">
-          <div className="flex flex-wrap gap-2 sticky top-16">
-            {article.categories.map((category) => (
-              <BlogCategoryChip key={category._id} category={category} />
-            ))}
+      <div className="w-full relative">
+        <div className="flex gap-32 relative ">
+          <BlogArticleContent article={article} />
+
+          <div className="h-auto relative ">
+            <div className="flex flex-wrap gap-2 sticky top-16">
+              {article.categories.map((category) => (
+                <BlogCategoryChip key={category._id} category={category} />
+              ))}
+            </div>
+
+            <BlogArticleTableOfContents headings={headings} />
           </div>
-
-          <BlogArticleTableOfContents headings={headings} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

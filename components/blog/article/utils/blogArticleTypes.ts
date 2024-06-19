@@ -16,4 +16,5 @@ export type BlogArticle = {
     };
   };
   slug: { current: string };
+  description: string;
 };

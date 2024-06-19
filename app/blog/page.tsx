@@ -1,7 +1,4 @@
-import {
-  getFormattedDate,
-  getSlugFromText,
-} from "@codebymedu/components/blog/article/utils/blogArticleHelpers";
+import { getFormattedDate } from "@codebymedu/components/blog/article/utils/blogArticleHelpers";
 import { BlogArticle } from "@codebymedu/components/blog/article/utils/blogArticleTypes";
 import { EmailSubscriptionForm } from "@codebymedu/components/emailSubscriptionForm";
 import { subtitle, title } from "@codebymedu/components/primitives";
