@@ -9,10 +9,14 @@ const emailSchema = z.object({
   email: z.string().email("Invalid email address"),
 });
 
-type EmailSubscriptionFormProps = { label?: string };
+type EmailSubscriptionFormProps = {
+  label?: string;
+  handleSuccess?: () => void;
+};
 
 export const EmailSubscriptionForm = ({
   label = "Subscribe to get notified",
+  handleSuccess,
 }: EmailSubscriptionFormProps) => {
   // --- CALLBACKS ---
 
@@ -34,6 +38,8 @@ export const EmailSubscriptionForm = ({
 
       return { message: "Error subscribing. Please try again." };
     }
+
+    handleSuccess?.();
 
     return { message: "Subscribed successfully :)" };
   };

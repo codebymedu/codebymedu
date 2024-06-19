@@ -7,6 +7,7 @@ import { BlogArticle } from "@codebymedu/components/blog/article/utils/blogArtic
 import { BlogCategoryChip } from "@codebymedu/components/blog/blogCategoryChip";
 import { urlForImage } from "@codebymedu/sanity/lib/image";
 import { Metadata } from "next";
+import { OneTimeEmailSubscriptionModal } from "@codebymedu/components/oneTimeEmailSubscriptionModal";
 
 type Props = { params: { slug: string } };
 
@@ -86,6 +87,8 @@ const BlogArticlePage = async ({ params }: Props) => {
           </div>
         </div>
       </div>
+
+      <OneTimeEmailSubscriptionModal />
     </>
   );
 };
