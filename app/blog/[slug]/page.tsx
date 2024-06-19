@@ -5,10 +5,43 @@ import { getHeadingsFromBlocks } from "@codebymedu/components/blog/article/utils
 import { BlogArticleContent } from "@codebymedu/components/blog/article/blogArticleContent";
 import { BlogArticle } from "@codebymedu/components/blog/article/utils/blogArticleTypes";
 import { BlogCategoryChip } from "@codebymedu/components/blog/blogCategoryChip";
-import { Head } from "next/document";
 import { urlForImage } from "@codebymedu/sanity/lib/image";
+import { Metadata } from "next";
 
-const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
+type Props = { params: { slug: string } };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const article: BlogArticle = await sanityClient.fetch(
+    `
+    *[_type == "post" && slug.current == $slug][0]{
+      ...,
+      categories[]->{
+        _id,
+        title
+      }
+    }
+      `,
+    { slug: params.slug }
+  );
+
+  return {
+    title: `${article.title} - Code by Medu`,
+    description: article.description,
+    openGraph: {
+      images: [urlForImage(article.mainImage)],
+      type: "article",
+      description: article.description,
+    },
+    twitter: {
+      images: [urlForImage(article.mainImage)],
+      description: article.description,
+    },
+    keywords:
+      "User feedback, web development, improve usability, user testing, feedback integration, website improvements, web application development",
+  };
+}
+
+const BlogArticlePage = async ({ params }: Props) => {
   // --- DATA ---
 
   const article: BlogArticle = await sanityClient.fetch(
@@ -38,15 +71,6 @@ const BlogArticlePage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <Head>
-        <title>{article.title}</title>
-        <meta name="description" content={article.description} />
-        <meta property="og:title" content={article.title} />
-        <meta property="og:description" content={article.description} />
-        <meta property="og:image" content={urlForImage(article.mainImage)} />
-        <meta property="og:type" content="article" />
-      </Head>
-
       <div className="w-full relative">
         <div className="flex gap-32 relative ">
           <BlogArticleContent article={article} />
