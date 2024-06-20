@@ -79,7 +79,10 @@ const BlogArticlePage = async ({ params }: Props) => {
           <div className="h-auto relative ">
             <div className="flex flex-wrap gap-2 sticky top-16">
               {article.categories.map((category) => (
-                <BlogCategoryChip key={category._id} category={category} />
+                <BlogCategoryChip
+                  key={category.slug?.current}
+                  category={category}
+                />
               ))}
             </div>
 
