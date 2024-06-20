@@ -7,7 +7,10 @@ export type BlogArticle = {
   _createdAt: string;
   title: string;
   body: PortableTextBlock[];
-  categories: { _id: string; title: string }[];
+  categories: {
+    title: string;
+    slug?: { current: string };
+  }[];
   mainImage: {
     _type: string;
     asset: {

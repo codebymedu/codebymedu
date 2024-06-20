@@ -1,5 +1,9 @@
-import { getFormattedDate } from "@codebymedu/components/blog/article/utils/blogArticleHelpers";
+import {
+  getFormattedDate,
+  getSlugFromText,
+} from "@codebymedu/components/blog/article/utils/blogArticleHelpers";
 import { BlogArticle } from "@codebymedu/components/blog/article/utils/blogArticleTypes";
+import { BlogCategoryChip } from "@codebymedu/components/blog/blogCategoryChip";
 import { EmailSubscriptionForm } from "@codebymedu/components/emailSubscriptionForm";
 import { subtitle, title } from "@codebymedu/components/primitives";
 import { sanityClient } from "@codebymedu/sanity/lib/client";
@@ -8,22 +12,46 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-export default async function Blog() {
-  const articles: BlogArticle[] = await sanityClient.fetch(
+export default async function Blog({
+  searchParams,
+}: {
+  searchParams: { category: string };
+}) {
+  const categoriesPromise: Promise<
+    { slug: { current: string }; title: string }[]
+  > = sanityClient.fetch(
     `
-    *[_type == "post"]{
-      ...,
-      categories[]->{
-        _id,
-        title
+    *[_type == "category"]{
+      title,
+      slug
       }
-    }
-    `
+      `
   );
 
-  if (!articles || articles.length === 0) {
-    return redirect("/coming-soon");
-  }
+  const articlesPromise: Promise<BlogArticle[]> = sanityClient.fetch(
+    searchParams.category
+      ? `*[_type == "post" && "${searchParams.category}" in categories[]->slug.current]{
+         ...,
+         categories[]->{
+           _id,
+           title,
+           slug
+         }
+       }`
+      : `*[_type == "post"]{
+         ...,
+         categories[]->{
+           _id,
+           title,
+           slug
+         }
+       }`
+  );
+
+  const [categories, articles] = await Promise.all([
+    categoriesPromise,
+    articlesPromise,
+  ]);
 
   return (
     <div className="items-center py-8 md:py-10">
@@ -43,7 +71,27 @@ export default async function Blog() {
         </h2>
       </div>
 
-      <div className="flex justify-between flex-wrap mt-16 mb-32">
+      <div className="gap-2 flex  mt-16">
+        <BlogCategoryChip
+          category={{ title: "All" }}
+          isActive={!searchParams.category}
+        />
+
+        {categories.map((category) => (
+          <BlogCategoryChip
+            key={category.slug.current}
+            category={category}
+            isActive={category.slug.current === searchParams.category}
+          />
+        ))}
+      </div>
+
+      <div className="flex justify-between  mt-4 flex-wrap mb-32">
+        {!articles ||
+          (articles.length === 0 && (
+            <>There are currently no posts in this category</>
+          ))}
+
         {articles.map((article) => (
           <Link key={article.title} href={`/blog/${article.slug.current}`}>
             <div className="w-full md:w-80 lg:w-96 cursor-pointer">

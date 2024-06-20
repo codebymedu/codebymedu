@@ -51,7 +51,7 @@ const BlogArticlePage = async ({ params }: Props) => {
       ...,
       categories[]->{
         _id,
-        title
+        title, slug
       }
     }
       `,
