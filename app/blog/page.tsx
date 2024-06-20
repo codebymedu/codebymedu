@@ -1,7 +1,4 @@
-import {
-  getFormattedDate,
-  getSlugFromText,
-} from "@codebymedu/components/blog/article/utils/blogArticleHelpers";
+import { getFormattedDate } from "@codebymedu/components/blog/article/utils/blogArticleHelpers";
 import { BlogArticle } from "@codebymedu/components/blog/article/utils/blogArticleTypes";
 import { BlogCategoryChip } from "@codebymedu/components/blog/blogCategoryChip";
 import { EmailSubscriptionForm } from "@codebymedu/components/emailSubscriptionForm";
@@ -10,48 +7,42 @@ import { sanityClient } from "@codebymedu/sanity/lib/client";
 import { urlForImage } from "@codebymedu/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 export default async function Blog({
   searchParams,
 }: {
   searchParams: { category: string };
 }) {
-  const categoriesPromise: Promise<
-    { slug: { current: string }; title: string }[]
-  > = sanityClient.fetch(
-    `
-    *[_type == "category"]{
+  // --- DATA ---
+
+  const {
+    categories,
+    articles,
+  }: {
+    categories: { slug: { current: string }; title: string }[];
+    articles: BlogArticle[];
+  } = await sanityClient.fetch(`
+  {
+    "categories": *[_type == "category"]{
       title,
       slug
+    },
+    "articles": *[_type == "post"${
+      searchParams.category
+        ? ` && "${searchParams.category}" in categories[]->slug.current`
+        : ""
+    }]{
+      ...,
+      categories[]->{
+        _id,
+        title,
+        slug
       }
-      `
-  );
+    }
+  }
+`);
 
-  const articlesPromise: Promise<BlogArticle[]> = sanityClient.fetch(
-    searchParams.category
-      ? `*[_type == "post" && "${searchParams.category}" in categories[]->slug.current]{
-         ...,
-         categories[]->{
-           _id,
-           title,
-           slug
-         }
-       }`
-      : `*[_type == "post"]{
-         ...,
-         categories[]->{
-           _id,
-           title,
-           slug
-         }
-       }`
-  );
-
-  const [categories, articles] = await Promise.all([
-    categoriesPromise,
-    articlesPromise,
-  ]);
+  // --- RENDER ---
 
   return (
     <div className="items-center py-8 md:py-10">
