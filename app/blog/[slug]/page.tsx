@@ -37,8 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [urlForImage(article.mainImage)],
       description: article.description,
     },
-    keywords:
-      "User feedback, web development, improve usability, user testing, feedback integration, website improvements, web application development",
+    keywords: article.keywords || "Code by Medu",
   };
 }
 

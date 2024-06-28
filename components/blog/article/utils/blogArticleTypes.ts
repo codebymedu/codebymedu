@@ -7,6 +7,7 @@ export type BlogArticle = {
   _createdAt: string;
   title: string;
   body: PortableTextBlock[];
+  keywords: string;
   categories: {
     title: string;
     slug?: { current: string };
