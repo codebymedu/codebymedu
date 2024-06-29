@@ -25,7 +25,7 @@ export const portableTextComponents: PortableTextComponents = {
     h1: ({ children, value }) => (
       <h1
         id={getSlugFromText(value.children[0].text)}
-        className="text-4xl font-bold mb-4"
+        className="text-4xl font-bold my-4"
       >
         {children}
       </h1>
@@ -33,7 +33,7 @@ export const portableTextComponents: PortableTextComponents = {
     h2: ({ children, value }) => (
       <h2
         id={getSlugFromText(value.children[0].text)}
-        className="text-3xl font-bold mb-4"
+        className="text-3xl font-bold my-4"
       >
         {children}
       </h2>
@@ -41,10 +41,15 @@ export const portableTextComponents: PortableTextComponents = {
     h3: ({ children, value }) => (
       <h3
         id={getSlugFromText(value.children[0].text)}
-        className="text-2xl font-bold mb-4"
+        className="text-2xl font-bold my-4"
       >
         {children}
       </h3>
+    ),
+    h4: ({ children, value }) => (
+      <h4 id={getSlugFromText(value.children[0].text)} className="text-xl mb-4">
+        {children}
+      </h4>
     ),
     normal: ({ children }) => <p className="text-base mb-4">{children}</p>,
   },
