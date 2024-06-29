@@ -64,6 +64,7 @@ export default async function Blog({
 
       <div className="gap-2 flex  mt-16">
         <BlogCategoryChip
+          key="all-you-have-heree"
           category={{ title: "All" }}
           isActive={!searchParams.category}
         />

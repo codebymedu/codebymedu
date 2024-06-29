@@ -12,9 +12,9 @@ export const BlogCategoryChip = ({
   isActive = true,
 }: BlogCategoryChipProps) => (
   <Link
-    key={category.title}
+    key={category.slug?.current}
     href={
-      category.slug?.current
+      category.title !== "All"
         ? `/blog?category=${category.slug?.current}`
         : "/blog"
     }
