@@ -4,47 +4,52 @@
   <!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
   <url>
     <loc>https://www.codebymedu.com/</loc>
-    <lastmod>2024-06-29T13:52:19+00:00</lastmod>
+    <lastmod>2024-06-29T19:55:00+00:00</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>https://www.codebymedu.com/blog</loc>
-    <lastmod>2024-06-29T13:52:19+00:00</lastmod>
+    <lastmod>2024-06-29T19:55:00+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.codebymedu.com/blog?category=projects</loc>
-    <lastmod>2024-06-29T13:52:19+00:00</lastmod>
+    <lastmod>2024-06-29T19:55:00+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.codebymedu.com/blog?category=career-tips</loc>
-    <lastmod>2024-06-29T13:52:19+00:00</lastmod>
+    <lastmod>2024-06-29T19:55:00+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.codebymedu.com/blog?category=tutorials</loc>
-    <lastmod>2024-06-29T13:52:19+00:00</lastmod>
+    <lastmod>2024-06-29T19:55:00+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.codebymedu.com/blog?category=tech-trends</loc>
-    <lastmod>2024-06-29T13:52:19+00:00</lastmod>
+    <lastmod>2024-06-29T19:55:00+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.codebymedu.com/blog?category=best-practices</loc>
-    <lastmod>2024-06-29T13:52:19+00:00</lastmod>
+    <lastmod>2024-06-29T19:55:00+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.codebymedu.com/blog/frontend-engineer-without-a-degree</loc>
+    <lastmod>2024-06-29T19:55:00+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.codebymedu.com/blog/19-next-js-project-ideas-for-portfolio</loc>
-    <lastmod>2024-06-29T13:52:19+00:00</lastmod>
+    <lastmod>2024-06-29T19:55:00+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.codebymedu.com/blog/role-of-user-feedback-in-frontend</loc>
-    <lastmod>2024-06-29T13:52:19+00:00</lastmod>
+    <lastmod>2024-06-29T19:55:00+00:00</lastmod>
     <priority>0.64</priority>
   </url>
 </urlset>
