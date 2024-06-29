@@ -78,7 +78,7 @@ export default async function Blog({
         ))}
       </div>
 
-      <div className="flex justify-between  mt-4 flex-wrap mb-32">
+      <div className="flex  gap-8  mt-4 flex-wrap mb-32">
         {!articles ||
           (articles.length === 0 && (
             <>There are currently no posts in this category</>

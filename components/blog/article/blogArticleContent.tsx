@@ -23,9 +23,9 @@ export const BlogArticleContent = ({ article }: BlogArticleContentProps) => {
       <Image
         alt={`${article.title} image`}
         src={urlForImage(article.mainImage)}
-        height={900}
+        height={1000}
         width={1600}
-        className="object-cover w-full h-96 rounded-xl shadow-xl dark:shadow-neutral-900/30 hover:dark:shadow-neutral-900/90 mb-6"
+        className="object-cover w-full h-[500px] rounded-xl shadow-xl dark:shadow-neutral-900/30 hover:dark:shadow-neutral-900/90 mb-6"
       />
 
       <p className="text-xs mb-8">{getFormattedDate(postDate)}</p>

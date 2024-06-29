@@ -8,6 +8,7 @@ import { BlogCategoryChip } from "@codebymedu/components/blog/blogCategoryChip";
 import { urlForImage } from "@codebymedu/sanity/lib/image";
 import { Metadata } from "next";
 import { OneTimeEmailSubscriptionModal } from "@codebymedu/components/oneTimeEmailSubscriptionModal";
+import { EmailSubscriptionForm } from "@codebymedu/components/emailSubscriptionForm";
 
 type Props = { params: { slug: string } };
 
@@ -73,7 +74,13 @@ const BlogArticlePage = async ({ params }: Props) => {
     <>
       <div className="w-full relative">
         <div className="flex gap-32 relative ">
-          <BlogArticleContent article={article} />
+          <div className="">
+            <BlogArticleContent article={article} />
+
+            <div className="my-16">
+              <EmailSubscriptionForm label="Subscribe to the weekly newsletter for latest updates" />
+            </div>
+          </div>
 
           <div className="h-auto relative ">
             <div className="flex flex-wrap gap-2 sticky top-16">
