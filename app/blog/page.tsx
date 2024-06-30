@@ -31,7 +31,7 @@ export default async function Blog({
       searchParams.category
         ? ` && "${searchParams.category}" in categories[]->slug.current`
         : ""
-    }]{
+    }] | order(_createdAt desc){
       ...,
       categories[]->{
         _id,
@@ -41,6 +41,8 @@ export default async function Blog({
     }
   }
 `);
+
+  console.log({ articles });
 
   // --- RENDER ---
 
